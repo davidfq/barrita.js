@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="@11870" />
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>oos-progress</title>
+	<link rel="stylesheet" href="barrita.css">
+	<style>
+		#xx {
+			border-right: 2px solid red;
+			margin: 4em;
+		}
+		button {
+			font-size: 1.1em;
+			padding: .2em;
+			margin: 1em;
+			border-radius: 6px;
+		}
+		.barrita {
+			position: absolute;
+			top:0;
+		}
+		#barrita_xx {
+			position: relative;
+		}
+		#barrita_xxx {
+			position:relative;
+		}
+	</style>
+</head>
+<body id="barrita_page">
+
+<h1>oos-progress</h1>
+	<div id="xx">
+		<h2>xx</h2>
+		<p>lorem ipsum dolor sit amet</p>
+		
+		<button id="start">start</button>
+		<button id="stop">stop</button>
+		<button id="done">done</button>
+		
+		<button id="set">set 5</button>
+		<button id="inc">inc</button>
+		<button id="reset">reset</button>
+		<br /> <br />
+	</div>
+	<div id="xxx">
+		<h1>xxx</h1>
+	</div>
+	
+  <script src="vendor/jquery-2.0.3.min.js"></script>
+  <script src="barrita.js"></script>
+	<script>
+		
+		$('#xx').barrita({ speed : 10, trickleSpeed : 300 });
+		//$('#xxx').barrita({ speed : 900, trickleSpeed : 900});
+		$(document.body).on('click', function(e){
+			var $el = $(e.target);
+			if($el[0].id == 'start'){
+				$('#xx').data('barrita').start();
+			}else if($el[0].id == 'done'){
+				$('#xx').data('barrita').done();
+			}else if($el[0].id == 'set'){
+				$('#xx').data('barrita').set(50);
+			} else if($el[0].id == 'reset'){
+				$('#xx').data('barrita').reset();
+			} else if($el[0].id == 'inc'){
+				$('#xx').data('barrita').inc();
+			}	else if($el[0].id == 'stop'){
+				$('#xx').data('barrita').stop();
+			}
+		});
+	</script>
+</body>
+</html>
+
