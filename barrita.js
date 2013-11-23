@@ -27,7 +27,7 @@
       },
       $barrita = null, 
       $el = $(el),
-      id = 'barrita_' + (el.id || $.now()),
+      id = 'barrita_' + (el.id || new Date().getTime()),
       timeout = null,
       status = null,
       stopped = true;
@@ -36,6 +36,9 @@
 
     barrita.start = function(){
       barrita.reset();
+      if(this.settings.hideOnDone){
+        $barrita.show();
+      }
       stopped = false;
       $barrita.addClass('barrita_moving');
       barrita.inc();
@@ -48,6 +51,9 @@
     
     barrita.set = function(n){
       stop();
+      if(this.settings.hideOnDone){
+        $barrita.show();
+      }
       move(n, false);
     };
     
@@ -66,10 +72,12 @@
     barrita.done = function(){
       status = this.settings.full;
       css(0, true);
-      stop();
       if(this.settings.hideOnDone){
-        $barrita.fadeOut(200);
+        setTimeout(function(){
+          $barrita.hide();
+        }, this.settings.speed);
       }
+      stop();
     };
     
     barrita.reset = function(){
@@ -124,6 +132,7 @@
     
     var css = function(n, transition){
       var cssObj;
+      
       if(barrita.settings.positionUsing === 'translate3d'){
         cssObj = { transform : 'translate3d('+n+',0,0)' };
       }else if(barrita.settings.positionUsing === 'translate'){
@@ -137,6 +146,7 @@
           transition : 'all '+barrita.settings.trickleSpeed+'ms linear'
         });
       }
+      
       $barrita.find('[role=bar]').css(cssObj);
     };
     
