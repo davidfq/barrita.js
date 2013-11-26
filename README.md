@@ -7,13 +7,13 @@ It's based on [nprogress](https://github.com/rstacruz/nprogress), but instead of
 ## Getting Started
 Download the [production version][prod].
 
-[min]: https://raw.github.com/davidfq/barrita.js/master/barrita-1.0.0.min.js
+[prod]: https://raw.github.com/davidfq/barrita.js/master/barrita-1.0.0.min.js
 
 In your web page:
 
 ```html
 <script src="jquery.js"></script>
-<script src="dist/barrita-1.0.0.min.js"></script>
+<script src="barrita-1.0.0.min.js"></script>
 <script>
 jQuery(function($) {
   $('.some-selector').barrita();
@@ -31,4 +31,4 @@ _(Coming soon)_
 _(Nothing yet)_
 
 
-(*) "barrita" is the spanish word for progress bar
+(*) "barrita" is a spanish diminutive for progress bar

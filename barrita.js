@@ -134,19 +134,20 @@
       var cssObj;
       
       if(barrita.settings.positionUsing === 'translate3d'){
-        cssObj = { transform : 'translate3d('+n+',0,0)' };
+        cssObj = { 'transform' : 'translate3d('+n+',0,0)' };
       }else if(barrita.settings.positionUsing === 'translate'){
-        cssObj = { transform : 'translate('+n+',0)' };
+        cssObj = { 'transform' : 'translate('+n+',0)' };
       }else {
         cssObj = { 'margin-left' : n };
       }
+      cssObj = { 'margin-left' : n };
       
       if(transition){
         $.extend(cssObj, {
-          transition : 'all '+barrita.settings.trickleSpeed+'ms linear'
+          'transition' : 'all '+barrita.settings.trickleSpeed+'ms linear'
         });
       }
-      
+
       $barrita.find('[role=bar]').css(cssObj);
     };
     
