@@ -3,9 +3,7 @@ describe('barrita spec', function() {
   var $fixture = $('<div class="fixture"></div>'),
     barrita,
     getPosition = function(barrita, $el){
-      return (barrita.settings.positionUsing === 'margin') ? 
-        parseInt($el.css('margin-left').replace(/[^-\d\.]/g, '')) : 
-        $el.position().left;
+      return parseInt($el.css('margin-left').replace(/[^-\d\.]/g, ''));
     };
   
   beforeEach(function() {

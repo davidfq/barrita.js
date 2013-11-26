@@ -22,8 +22,7 @@
         full : 100,
         speed : 400,
         autoStart : true,
-        hideOnDone : true,
-        positionUsing : null
+        hideOnDone : true
       },
       $barrita = null, 
       $el = $(el),
@@ -131,16 +130,7 @@
     };
     
     var css = function(n, transition){
-      var cssObj;
-      
-      if(barrita.settings.positionUsing === 'translate3d'){
-        cssObj = { 'transform' : 'translate3d('+n+',0,0)' };
-      }else if(barrita.settings.positionUsing === 'translate'){
-        cssObj = { 'transform' : 'translate('+n+',0)' };
-      }else {
-        cssObj = { 'margin-left' : n };
-      }
-      cssObj = { 'margin-left' : n };
+      var cssObj = { 'margin-left' : n };
       
       if(transition){
         $.extend(cssObj, {
@@ -151,38 +141,11 @@
       $barrita.find('[role=bar]').css(cssObj);
     };
     
-    var getPositioningCSS = function(){
-      // Sniff on document.body.style
-      var bodyStyle = document.body.style,
-        res,
-        // Sniff prefixes
-        vendorPrefix = ('WebkitTransform' in bodyStyle) ? 'Webkit' :
-                         ('MozTransform' in bodyStyle) ? 'Moz' :
-                         ('msTransform' in bodyStyle) ? 'ms' :
-                         ('OTransform' in bodyStyle) ? 'O' : '';
-
-      if (vendorPrefix + 'Perspective' in bodyStyle) {
-        // Modern browsers with 3D support, e.g. Webkit, IE10
-        res = 'translate3d';
-      } else if (vendorPrefix + 'Transform' in bodyStyle) {
-        // Browsers without 3D support, e.g. IE9
-        res = 'translate';
-      } else {
-        // Browsers without translate() support, e.g. IE7-8
-        res = 'margin';
-      }
-      return res;
-    };
-    
     var init = function(){
       barrita.settings = $.extend({}, defaults, options);
       $barrita = $(barrita.settings.container);
       $barrita.attr('id', id).html(barrita.settings.tmpl);
       $el.append($barrita);
-      
-      if(!barrita.settings.positionUsing){
-        barrita.settings.positionUsing = getPositioningCSS();
-      }
       
       if(barrita.settings.autoStart){
         barrita.start();
