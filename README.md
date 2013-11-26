@@ -4,6 +4,8 @@ __barrita.js__(*) is a jQuery plugin to create progress bars.
 
 It's based on [nprogress](https://github.com/rstacruz/nprogress), but instead of having one global progress bar you can have multiple progress bar instances attached to any DOM element in your page.
 
+It's compatible with [Zepto](http://zeptojs.com/) if **data** module is available ([+info](https://github.com/madrobby/zepto#readmeinfo)).
+
 ## Getting Started
 Download the [production version][prod].
 
