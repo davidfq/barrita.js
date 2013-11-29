@@ -91,7 +91,7 @@
     
     barrita.isStopped = function(){
       return stopped;
-    }
+    };
     
     barrita.getId = function(){
       return id;
@@ -107,15 +107,19 @@
         if(stopped || status === barrita.settings.full){
           clearTimeout(timeout);
           return;
-        };
+        }
         barrita.inc();
         work();
       }, barrita.settings.speed);
     };
     
     var clamp = function(n, min, max) {
-      if (n < min) return min;
-      if (n > max) return max;
+      if(n < min){
+         return min;
+      }
+      if(n > max){
+        return max;
+      }
       return n;
     };
     
@@ -160,7 +164,7 @@
   $.fn.barrita = function(options) {
     return this.each(function(){
       var $el = $(this);
-      if (undefined == $el.data('barrita')) {
+      if (undefined === $el.data('barrita')) {
         $el.data('barrita', new $.barrita(this, options));
       }
     });
