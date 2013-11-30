@@ -9,22 +9,3 @@ h1 {
   font-size: 6em;
   display: inline-block;
 }
-
-#w1 {
-  margin-top: 3em;
-}
-
-#w1, #w2, #w3, #w4 {
-  display: inline-block;
-}
-
-.barrita {
-  margin-top: -5.9%;
-  background-color: transparent;
-  height: 10px;
-}
-
-.barrita .barrita__bar {
-  top: 50%;
-  background: #333;
-}
