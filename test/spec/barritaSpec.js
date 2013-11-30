@@ -2,14 +2,13 @@ describe('barrita spec', function() {
   
   var $fixture = $('<div class="fixture"></div>'),
     barrita,
-    getPosition = function(barrita, $el){
+    getPosition = function($el){
       return parseInt($el.css('margin-left').replace(/[^-\d\.]/g, ''));
     };
   
   beforeEach(function() {
-    barrita = $(document.body).append($fixture)
-      .barrita()
-      .data('barrita');
+    $(document.body).append($fixture);
+    barrita = $fixture.barrita().data('barrita');
   });
   
   afterEach(function(){
@@ -82,10 +81,10 @@ describe('barrita spec', function() {
     it('should change DOM element (bar) position', function(){
       var start, end, $bar = $('#'+barrita.getId()).find('.barrita__bar');       
       runs(function() {
-        start = getPosition(barrita, $bar);
+        start = getPosition($bar);
         barrita.inc(90);
         setTimeout(function() {
-          end = getPosition(barrita, $bar);
+          end = getPosition($bar);
         }, barrita.settings.trickleSpeed);
       });
       
