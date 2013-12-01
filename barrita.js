@@ -17,7 +17,6 @@
         tmpl : '<div class="barrita__bar" role="bar"></div>',
         trickleRate : 2,
         trickleSpeed : 200,
-        min : 0,
         max : 94,
         full : 100,
         speed : 400,
@@ -34,7 +33,6 @@
     barrita.settings = {};
 
     barrita.start = function(){
-      barrita.reset();
       if(this.settings.hideOnDone){
         $barrita.show();
       }
@@ -64,7 +62,7 @@
           amount = amount * 10;
         }     
       }
-      status = clamp(current + amount, this.settings.min , this.settings.max);
+      status = clamp(current + amount, 0, this.settings.max);
       move(status, true);
     };
     
@@ -77,12 +75,6 @@
         }, this.settings.speed);
       }
       stop();
-    };
-    
-    barrita.reset = function(){
-      status = this.settings.min;
-      stopped = true;
-      css('-100%', false);
     };
     
     barrita.getStatus = function(){

@@ -9,7 +9,7 @@ It's compatible with [Zepto](http://zeptojs.com/) if **data** module is availabl
 ## Getting Started
 Download the [production version][prod].
 
-[prod]: https://raw.github.com/davidfq/barrita.js/master/barrita-1.0.0.min.js
+[prod]: https://raw.github.com/davidfq/barrita.js/master/barrita-1.2.0.min.js
 
 In your web page:
 

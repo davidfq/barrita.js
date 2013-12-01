@@ -26,7 +26,7 @@ describe('barrita spec', function() {
       expect($.isFunction(barrita.stop)).toBe(true);
       expect($.isFunction(barrita.inc)).toBe(true);
       expect($.isFunction(barrita.done)).toBe(true);
-      expect($.isFunction(barrita.reset)).toBe(true);
+      expect($.isFunction(barrita.set)).toBe(true);
     });
 
     it('should add progress UI tmpl to DOM element', function(){
@@ -53,8 +53,8 @@ describe('barrita spec', function() {
       expect(barrita.getStatus()).toBe(100);
     });
     
-    it('gets status 0% when reset', function(){
-      barrita.reset();
+    it('gets status 0% when stopped and set to zero', function(){
+      barrita.set(0);
       expect(barrita.getStatus()).toBe(0);
     });
     
