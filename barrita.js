@@ -146,7 +146,7 @@
       if(barrita.settings.autoStart){
         barrita.start();
       }else{
-        barrita.reset();
+        barrita.set(0);
       }
     };
     

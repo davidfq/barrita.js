@@ -3,7 +3,7 @@
   "title": "barrita.js",
   "description": "jQuery (Zepto compatible) plugin to create progress bars",
   "homepage": "https://github.com/davidfq/barrita.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/davidfq/barrita.js.git"
