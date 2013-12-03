@@ -36,9 +36,12 @@
       if(this.settings.hideOnDone){
         $barrita.show();
       }
+      if(this.getStatus() === this.settings.full){
+        this.set(0);
+      }
       stopped = false;
       $barrita.addClass('barrita_moving');
-      barrita.inc();
+      this.inc();
       work();
     };
     

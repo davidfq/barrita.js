@@ -58,7 +58,8 @@ describe('barrita spec', function() {
       expect(barrita.getStatus()).toBe(0);
     });
     
-    it('gets status > 0% when started again', function(){
+    it('gets status > 0% when done started again', function(){
+      barrita.done();
       barrita.start();
       expect(barrita.getStatus()).toBeGreaterThan(0);
     });
