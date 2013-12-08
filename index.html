@@ -8,23 +8,115 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="normalize.css">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet" href="prism.css">
 		<link rel="stylesheet" href="//rawgithub.com/davidfq/barrita.js/master/barrita.css">
 		<link rel="stylesheet" href="style.css">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	</head>
-  <body>
+  <body id="page_body">
     <!--[if lt IE 8]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-		
-		<h1>barrita.js</h1>
-		
+		<div class="wrap">
+
+		<div class="intro">
+			<h1>barrita.js</h1>
+			<p>jQuery (and Zepto) plugin to create progress bars, heavily inspired by <a href="https://github.com/rstacruz/nprogress">nprogress</a></p>
+			<p>see code and <a href="https://github.com/davidfq/barrita.js">documentation at github</a></p>
+		</div>
+
+		<div class="demo">
+			<div id="demo__display_start-stop" class="demo__display"></div>
+			<p class="demo__controls">
+				<button data-action="start" class="fa fa-play"><span>.start()</span></button>
+				<button data-action="stop" class="fa fa-stop"><span>.stop()</span></button>
+				<button data-action="done" class="fa fa-fast-forward"><span>.done()</span></button>
+				<a href="#demo__code_start-stop" class="demo__code-trigger">show code</a>
+			</p>
+
+<pre id="demo__code_start-stop" class="demo__code is-hidden"><code class="language-javascript">
+var barrita = $("#demo_start-stop").barrita({ 
+		autoStart : false, 
+		hideOnDone : false 
+	}).data('barrita');
+
+barrita.start();
+barrita.stop();
+barrita.done();
+</code></pre>
+		</div>
+
+<div class="demo">	
+	<div id="demo__display_settings" class="demo__display"></div>
+	<p class="demo__controls">
+		<a href="#demo__code_settings" class="demo__code-trigger">show code</a>
+	</p>
+
+<pre id="demo__code_settings" class="demo__code is-hidden"><code class="language-javascript">
+var options = {
+	// default value
+	autoStart : true, 
+	// default value
+	hideOnDone : true, 
+	// time between increments (millis)
+	speed : 2500, 
+	// transition speed (millis)
+	trickleRate : 500 
+};
+$('#demo_settings').barrita(options);
+</code></pre>
+</div>
+
+<div class="demo">
+	<div id="demo__display_inc" class="demo__display"></div>
+	<p class="demo__controls">
+		<button data-action="inc" class="fa fa-forward"><span>.inc()</span></button>
+		<a href="#demo__code_inc" class="demo__code-trigger">show code</a>
+	</p>
+	
+<pre id="demo__code_inc" class="demo__code is-hidden"><code class="language-javascript">
+var barrita = $("#demo_random-inc").barrita({ 
+		autoStart : false, 
+		hideOnDone : false
+	}).data('barrita');
+
+barrita.inc(); //random increment
+</code></pre>
+</div>
+
+<div class="demo">	
+	<div id="demo__display_set-values" class="demo__display"></div>
+	<p class="demo__controls">
+		<button data-action="set" data-arg="25" class="fa fa-step-forward"><span>.set(25)</span></button>
+		<button data-action="set" data-arg="50" class="fa fa-step-forward"><span>.set(50)</span></button>
+		<button data-action="set" data-arg="99" class="fa fa-step-forward"><span>.set(99)</span></button>
+		<a href="#demo__code_set-values" class="demo__code-trigger">show code</a>
+	</p>
+
+<pre id="demo__code_set-values" class="demo__code is-hidden"><code class="language-javascript">
+var barrita = $("#demo_set-values").barrita({ 
+		autoStart : false
+	}).data('barrita');
+
+// valid values are in [0-100] range
+barrita.set(25);
+barrita.set(50);
+barrita.set(99);
+</code></pre>
+</div>
+
+<div class="footer">
+	<p>© 2013 barrita.js by <a href="http://twitter.com/davidfq">davidfq</a></p>
+</div>
+
+</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="jquery-1.10.2.min.js"><\/script>')</script>
-		<script src="//rawgithub.com/davidfq/barrita.js/master/barrita-1.1.0.min.js"></script>
+		<script src="prism.js"></script>
+    <script src="//rawgithub.com/davidfq/barrita.js/master/barrita-1.3.1.min.js"></script>
 		<script src="demo.js"></script>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
         function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -32,6 +124,6 @@
         e.src='//www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+    </script>-->
   </body>
 </html>
